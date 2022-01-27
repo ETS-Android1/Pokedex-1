@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.pokemon_detail.PokemonDetailFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.pokedex.ui.pokemon_detail.PokemonDetailViewModel" />
+
+        <import type="org.apache.commons.text.WordUtils"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <include layout="@layout/progress_overlay" android:id="@+id/progress_overlay" android:visibility="@{viewModel.isDataLoading ? View.VISIBLE : View.GONE}"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="@dimen/pokemon_detail_fragment_padding">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/iv_pokemon_image"
+                imageUrl="@{viewModel.mPokemonImageUrl}"
+                android:layout_weight="0.35"/>
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_weight="0.65">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/pokemonName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{WordUtils.capitalize(viewModel.mPokemonName)}"
+                        android:textColor="@color/purple_200"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_pokemonTypes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/pokemon_detail_textview_spacing"
+                        android:text="@string/tv_pokemon_types"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/pokemonTypes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{WordUtils.capitalize(viewModel.mPokemonTypes)}"
+                        android:layout_marginTop="@dimen/pokemon_detail_textview_margin_top"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_pokemonStats"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/pokemon_detail_textview_spacing"
+                        android:text="@string/tv_pokemon_stats"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/pokemonStats_RecyclerView"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:overScrollMode="never"
+                        tools:listitem="@layout/stat_item"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_pokemonAbilities"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/pokemon_detail_textview_spacing"
+                        android:text="@string/tv_pokemon_abilities"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/pokemonAbilities"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{WordUtils.capitalize(viewModel.mPokemonAbilities)}"
+                        android:layout_marginTop="@dimen/pokemon_detail_textview_margin_top"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_pokemonMoves"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/pokemon_detail_textview_spacing"
+                        android:text="@string/tv_pokemon_moves"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/pokemonMoves"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{WordUtils.capitalize(viewModel.mPokemonMoves)}"
+                        android:layout_marginTop="@dimen/pokemon_detail_textview_margin_top"
+                        android:lineHeight="@dimen/pokemon_moves_line_height"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                        tools:targetApi="p" />
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

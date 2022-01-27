@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main">
+
+    <data>
+        <variable
+            name="view"
+            type="com.example.pokedex.ui.main.MainFragment" />
+
+        <variable
+            name="viewmodel"
+            type="com.example.pokedex.ui.main.MainViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/progress_overlay" android:id="@+id/progress_overlay" android:visibility="@{viewmodel.isDataLoading ? View.VISIBLE : View.GONE}"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:padding="@dimen/main_fragment_recyclerview_padding"
+            tools:listitem="@layout/pokemon_item" />
+
+    </LinearLayout>
+
+</layout>

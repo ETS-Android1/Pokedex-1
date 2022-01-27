@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="main_fragment_recyclerview_padding">16dp</dimen>
+    <dimen name="pokemon_item_layout_padding">12dp</dimen>
+    <dimen name="pokemon_item_cardview_corner_radius">4dp</dimen>
+    <dimen name="pokemon_item_spacing">10dp</dimen>
+    <dimen name="stat_item_textview_padding">10dp</dimen>
+    <dimen name="pokemon_item_textview_padding">5dp</dimen>
+    <dimen name="pokemon_detail_fragment_padding">16dp</dimen>
+    <dimen name="pokemon_detail_textview_margin_top">5dp</dimen>
+    <dimen name="pokemon_detail_textview_spacing">20dp</dimen>
+    <dimen name="pokemon_moves_line_height">28dp</dimen>
+</resources>

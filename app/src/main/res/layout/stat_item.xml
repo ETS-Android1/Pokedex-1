@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="item"
+            type="com.example.pokedex.data.model.Stat" />
+
+        <import type="org.apache.commons.text.WordUtils"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/stat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@{WordUtils.capitalize(item.statInfo.name)}"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/statValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:paddingStart="@dimen/stat_item_textview_padding"
+            android:paddingEnd="@dimen/stat_item_textview_padding"
+            android:text="@{item.value + ``}"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/statValueBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/statValue"
+            android:layout_toEndOf="@+id/stat"
+            android:max="@{item.maxLimit}"
+            android:progress="@{item.value}" />
+
+    </RelativeLayout>
+
+</layout>

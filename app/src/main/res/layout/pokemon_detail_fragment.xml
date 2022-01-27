@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.pokemon_detail.PokemonDetailFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.pokedex.ui.pokemon_detail.PokemonDetailViewModel" />
+
+        <import type="android.view.View"/>
+
+        <import type="org.apache.commons.text.WordUtils"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/progress_overlay" android:id="@+id/progress_overlay" android:visibility="@{viewModel.isDataLoading ? View.VISIBLE : View.GONE}"/>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/pokemon_detail_fragment_padding">
+
+                <ImageView
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:layout_gravity="center_horizontal"
+                    android:contentDescription="@string/iv_pokemon_image"
+                    imageUrl="@{viewModel.mPokemonImageUrl}"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/pokemonName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pokemon_detail_textview_spacing"
+                    android:text="@{WordUtils.capitalize(viewModel.mPokemonName)}"
+                    android:textColor="@color/purple_200"
+                    android:gravity="center_horizontal"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_pokemonTypes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pokemon_detail_textview_spacing"
+                    android:text="@string/tv_pokemon_types"
+                    android:textAppearance="?attr/textAppearanceHeadline6"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/pokemonTypes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{WordUtils.capitalize(viewModel.mPokemonTypes)}"
+                    android:layout_marginTop="@dimen/pokemon_detail_textview_margin_top"
+                    android:textAppearance="?attr/textAppearanceSubtitle1"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_pokemonStats"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pokemon_detail_textview_spacing"
+                    android:text="@string/tv_pokemon_stats"
+                    android:textAppearance="?attr/textAppearanceHeadline6"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/pokemonStats_RecyclerView"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:overScrollMode="never"
+                    tools:listitem="@layout/stat_item"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_pokemonAbilities"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pokemon_detail_textview_spacing"
+                    android:text="@string/tv_pokemon_abilities"
+                    android:textAppearance="?attr/textAppearanceHeadline6"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/pokemonAbilities"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{WordUtils.capitalize(viewModel.mPokemonAbilities)}"
+                    android:layout_marginTop="@dimen/pokemon_detail_textview_margin_top"
+                    android:textAppearance="?attr/textAppearanceSubtitle1"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_pokemonMoves"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pokemon_detail_textview_spacing"
+                    android:text="@string/tv_pokemon_moves"
+                    android:textAppearance="?attr/textAppearanceHeadline6"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/pokemonMoves"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{WordUtils.capitalize(viewModel.mPokemonMoves)}"
+                    android:lineHeight="@dimen/pokemon_moves_line_height"
+                    android:layout_marginTop="@dimen/pokemon_detail_textview_margin_top"
+                    android:textAppearance="?attr/textAppearanceSubtitle1"
+                    tools:targetApi="p" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+</layout>

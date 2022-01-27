@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Pokedex</string>
+    <string name="btn_retry">Retry</string>
+    <string name="pokemon_img">pokemon_img</string>
+    <string name="tv_pokemon_types">Pokemon Types</string>
+    <string name="tv_pokemon_abilities">Pokemon Abilities</string>
+    <string name="tv_pokemon_stats">Pokemon Stats</string>
+    <string name="tv_pokemon_moves">Pokemon Moves</string>
+    <string name="iv_pokemon_image">Pokemon image</string>
+    <string name="menu_item_search">Search</string>
+    <string name="pokemon_search_bar_hint">Search for Pokémon by name</string>
+    <string name="main_fragment_title">Pokedex</string>
+    <string name="pokemon_detail_fragment_title">Pokedex</string>
+</resources>
