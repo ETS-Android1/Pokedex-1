@@ -6,7 +6,7 @@ An Android application to search and view the info of every Pokémon. This app d
 
 ## Screenshots
 
-![App Screenshot](https://github.com/MkSoo01/Pokedex/screenshots/screenshot.PNG) ![App Screenshot](https://github.com/MkSoo01/Pokedex/screenshots/screenshot2.PNG)
+![App Screenshot](https://github.com/MkSoo01/Pokedex/blob/master/screenshots/screenshot.PNG) ![App Screenshot](https://github.com/MkSoo01/Pokedex/blob/master/screenshots/screenshot2.PNG)
 
 
 ## Tech Stack & Open-source libraries
@@ -32,7 +32,7 @@ Pokedex is using [PokéApi](https://pokeapi.co/docs/v2#pokemon-section) to get a
 
 ## Demo
 
-![App Demo](https://github.com/MkSoo01/Pokedex/demo/demo1.gif) ![App Demo](https://github.com/MkSoo01/Pokedex/demo/demo2.gif)
+![App Demo](https://github.com/MkSoo01/Pokedex/blob/master/demo/demo1.gif) ![App Demo](https://github.com/MkSoo01/Pokedex/blob/master/demo/demo2.gif)
 
 
 ## Acknowledgements
